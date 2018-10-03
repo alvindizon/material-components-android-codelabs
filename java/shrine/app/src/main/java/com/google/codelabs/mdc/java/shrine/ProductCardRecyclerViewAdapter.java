@@ -31,9 +31,18 @@ public class ProductCardRecyclerViewAdapter extends RecyclerView.Adapter<Product
         return new ProductCardViewHolder(layoutView);
     }
 
+//    This method code tells our RecyclerView's adapter what to do with each card, using a ViewHolder.
+//    Here it sets the text data on each of the ViewHolder's TextViews, and calls an ImageRequester to get an image from a URL.
+//    The ImageRequester is a class we've provided for your convenience, and it uses the Volley library
+//            (That's a topic outside the scope of this codelab, but feel free to explore the code on your own).
     @Override
     public void onBindViewHolder(@NonNull ProductCardViewHolder holder, int position) {
-        // TODO: Put ViewHolder binding code here in MDC-102
+       if(productList != null && position < productList.size()) {
+           ProductEntry product = productList.get(position);
+           holder.productTitle.setText(product.title);
+           holder.productPrice.setText(product.price);
+           imageRequester.setImageFromUrl(holder.productImage, product.url);
+       }
     }
 
     @Override
