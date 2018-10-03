@@ -22,7 +22,10 @@ public class ProductGridItemDecoration extends RecyclerView.ItemDecoration {
                                RecyclerView parent, RecyclerView.State state) {
         outRect.left = smallPadding;
         outRect.right = smallPadding;
-        outRect.top = largePadding;
-        outRect.bottom = largePadding;
+        // removed so that all items will appear within whitespace
+        // if top and bottom still has padding,
+        // cards will be pushed outside the bottom border of the screen
+//        outRect.top = largePadding;
+//        outRect.bottom = largePadding;
     }
 }
