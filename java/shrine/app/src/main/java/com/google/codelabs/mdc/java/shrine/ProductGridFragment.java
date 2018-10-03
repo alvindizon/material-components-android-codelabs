@@ -5,12 +5,16 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.google.codelabs.mdc.java.shrine.network.ProductEntry;
 
 
 public class ProductGridFragment extends Fragment {
@@ -30,6 +34,18 @@ public class ProductGridFragment extends Fragment {
 
         // setup the toolbar
         setupToolbar(view);
+
+        // setup the recyclerview
+        RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2,
+                GridLayoutManager.VERTICAL, false));
+        ProductCardRecyclerViewAdapter adapter = new ProductCardRecyclerViewAdapter(
+                ProductEntry.initProductEntryList(getResources()));
+        recyclerView.setAdapter(adapter);
+        int largePadding = getResources().getDimensionPixelSize(R.dimen.shr_product_grid_spacing);
+        int smallPadding = getResources().getDimensionPixelSize(R.dimen.shr_product_grid_spacing_small);
+        recyclerView.addItemDecoration(new ProductGridItemDecoration(largePadding, smallPadding));
 
         return view;
     }
