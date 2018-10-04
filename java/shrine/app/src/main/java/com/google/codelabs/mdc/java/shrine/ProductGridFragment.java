@@ -70,6 +70,10 @@ public class ProductGridFragment extends Fragment {
         if(activity != null) {
             activity.setSupportActionBar(toolbar);
         }
+
+        toolbar.setNavigationOnClickListener(new NavigationIconClickListener(
+                getContext(),
+                view.findViewById(R.id.product_grid)));
     }
 
     @Override
