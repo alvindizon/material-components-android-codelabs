@@ -13,7 +13,10 @@
         android:gravity="center_horizontal"
         android:orientation="vertical"
         android:paddingTop="100dp"
-        android:paddingBottom="100dp"/>
+        android:paddingBottom="100dp">
+
+        <include layout="@layout/shr_backdrop"/>
+    </LinearLayout>
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
