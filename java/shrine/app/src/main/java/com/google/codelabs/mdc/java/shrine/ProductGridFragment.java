@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AccelerateDecelerateInterpolator;
 
 import com.google.codelabs.mdc.java.shrine.network.ProductEntry;
 import com.google.codelabs.mdc.java.shrine.staggeredgridlayout.StaggeredProductCardRecyclerViewAdapter;
@@ -73,7 +74,8 @@ public class ProductGridFragment extends Fragment {
 
         toolbar.setNavigationOnClickListener(new NavigationIconClickListener(
                 getContext(),
-                view.findViewById(R.id.product_grid)));
+                view.findViewById(R.id.product_grid),
+                new AccelerateDecelerateInterpolator()));
     }
 
     @Override
